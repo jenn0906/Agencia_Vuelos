@@ -16,6 +16,7 @@ while True :
 
     #Haciendo reservas-----------------------------------
     if opcion == "1":
+        #en esta linea estamos pidiendo al usuario ingresar la informacion inicial para el vuelo
         origen = input("¿Cual es tu origen?")
         destino = input("Escriba su destino")
         pasajeros = input("Cantidad de pasajeros")
