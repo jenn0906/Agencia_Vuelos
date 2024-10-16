@@ -42,17 +42,21 @@ while True :
         print(f"Tarea {idVuelos} creada con exito \n")
         idVuelos += 1
 
-        #fechaVencimiento = datetime.strptime(fechaVencimiento, "%d/%m/%y")
-        print(listaVuelos[:])
-
-    #en esta parte se deben mostrar los vuelos que puedo escoger
-    print("---\n Escoge tu vuelo----")
+    #fechaVencimiento = datetime.strptime(fechaVencimiento, "%d/%m/%y")
+    print(listaVuelos[:])
     
+    #en esta parte se deben mostrar los vuelos que puedo escoger
+
+
+    print("---\n Escoge tu vuelo----")
+        
+        #Lista de vuelos disponibles
+
     if  listaVuelos[0]["destino"].lower() == "medellin" :
-        print(viajes[0])
+         print(viajes[0])
     
     elif listaVuelos[0]["destino"].lower() == "cartagena" :
-        print(viajes[1])
+         print(viajes[1])
 
     if opcion == "4":
         if len(listaVuelos)== 0:
@@ -64,12 +68,14 @@ while True :
             print()
 
 
-    elif opcion == "5":
-        print("Muchas gracias Feliz día")
-        break
-    else:
-        print("opcion invalida por favor verifique")
-    
+    #-salir de la reserva-------
+
+    # if opcion == "5":
+    #      print("Muchas gracias por su visita")
+    #      break
+
+    # else:
+    #      print("opcion invalida por favor verifique")       
 
 
 
