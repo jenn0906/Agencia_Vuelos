@@ -1,7 +1,22 @@
 from datetime import datetime
 
 listaVuelos = []
-viajes = []
+viajes = [
+    {
+        "ciudad": "Medellín",
+        "precio": "$40",
+        "duración": "cuatro días y 3 noches",
+        "caminata": "es un paseo en el cerro"
+    },
+       {
+        "ciudad": "Cartagena",
+        "precio": "$400",
+        "duración": "2 días y 1 noche",
+        "caminata": "es un paseo"
+    },
+
+]
+
 idVuelos = 1 
 
 while True :
@@ -9,7 +24,8 @@ while True :
     print("1. A donde quieres ir?")
     print("2. Modificar mi vuelo")
     print("3. Eliminar mi vuelo")
-    print("4. salir")
+    print("4. Mostrar mis reservas")
+    print("5. salir")
 
     opcion = input("Elige la opcion deseada: ")
 
@@ -27,15 +43,32 @@ while True :
         idVuelos += 1
 
         #fechaVencimiento = datetime.strptime(fechaVencimiento, "%d/%m/%y")
-        print(listaVuelos[0])
+        print(listaVuelos[:])
 
     #en esta parte se deben mostrar los vuelos que puedo escoger
     print("---\n Escoge tu vuelo----")
     
-    if pasajeros == "1" & destino == "medellin" :
-        print(viajes)
+    if  listaVuelos[0]["destino"].lower() == "medellin" :
+        print(viajes[0])
+    
+    elif listaVuelos[0]["destino"].lower() == "cartagena" :
+        print(viajes[1])
 
-   
+    if opcion == "4":
+        if len(listaVuelos)== 0:
+            print("No hay listaVuelos..")
+        else:
+            print("-LISTA DE TAREAS-")
+        for i in listaVuelos:
+            print(f"ID: {i["id"]} Origen: {i["origen"]} Destino: {i["destino"]}")
+            print()
+
+
+    elif opcion == "5":
+        print("Muchas gracias Feliz día")
+        break
+    else:
+        print("opcion invalida por favor verifique")
     
 
 
