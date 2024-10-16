@@ -30,5 +30,6 @@ while True :
         fechaVencimiento = datetime.strptime(fechaVencimiento, "%d/%m/%y")
 
         #esto es una prueba
+        #esto es una prueba
 
         
