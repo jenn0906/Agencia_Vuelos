@@ -35,12 +35,57 @@ while True :
         origen = input("¿Cual es tu origen?: ")
         destino = input("Escriba su destino: ")
         pasajeros = input("Cantidad de pasajeros en numeros: ")
-        fechaIda = input("Ingrese fecha de ida (dd/mm/aaaa): ")
-        fechaRegreso = input("Ingrese fecha de regreso (dd/mm/aaaa):")
+        fecha_Ida = input("Ingrese fecha de ida (dd/mm/aaaa): ")
+        fecha_Regreso = input("Ingrese fecha de regreso (dd/mm/aaaa):")
 
-        listaVuelos.append({"id": idVuelos, "origen": origen, "destino": destino, "pasajeros": pasajeros, "fecha de ida": fechaIda, "fecha de regreso": fechaRegreso})
+        listaVuelos.append({"id": idVuelos, "origen": origen, "destino": destino, "pasajeros": pasajeros, "fecha de ida": fecha_Ida, "fecha de regreso": fecha_Regreso})
         print(f"Tarea {idVuelos} creada con exito \n")
         idVuelos += 1
+#editar_vuelo------------------------------------------------------------------------------------------------------------------------
+    if opcion == "2":
+      vuelo_encontrado = False
+    idActualizar = int(input("Ingrese el ID del vuelo que quiere actualizar: "))
+    
+    for i in viajes:
+        if i["id"] == idActualizar:
+            nuevoOrigen = input("Ingrese el nuevo origen (dejar en blanco si no quiere modificarlo): ")
+            nuevoDestino = input("Ingrese el nuevo destino (dejar en blanco si no quiere modificarlo): ")
+            nuevosPasajeros = input("Ingrese la nueva cantidad de pasajeros (dejar en blanco si no quiere modificarla): ")
+            nuevaFechaIda = input("Ingrese una nueva fecha (dejar en blanco si no quiere modificarla): ")
+            nuevaFechaRegreso = input("Ingrese una nueva fecha (dejar en blanco si no quiere modificarla): ")
+            
+            if nuevoOrigen:
+                i["origen"] = nuevoOrigen
+            if nuevoDestino:
+                i["destino"] = nuevoDestino
+            if nuevosPasajeros:
+                i["pasajeros"] = nuevosPasajeros
+            if nuevaFechaIda:
+                i["fecha_ida"] = nuevaFechaIda
+            if nuevaFechaRegreso:
+                i["fecha_regreso"] = nuevaFechaRegreso
+
+                
+            print(f"Vuelo {idActualizar} actualizado con éxito.\n")
+            vuelo_encontrado = True
+            break
+    
+    if not vuelo_encontrado:
+        print(f"No se encontró el vuelo con el ID: {idActualizar}\n")
+
+
+    #Eliminar reserva-------------------------------------     
+    elif opcion == "4":
+        idEliminar = int(input("Ingrese el ID a eliminar: "))
+        vuelo_encontrado = False
+        for i in idVuelos :
+            if i ["id"] == idEliminar:  
+                idVuelos.remove(i) 
+                print(f"Tarea {idEliminar} eliminada exitosamente ")
+                vuelo_encontrado = True
+                break
+        if not vuelo_encontrado :
+            print(f" No se encontro el vuelo con el ID {idEliminar}")     
 
     #fechaVencimiento = datetime.strptime(fechaVencimiento, "%d/%m/%y")
     print(listaVuelos[:])
