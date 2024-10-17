@@ -124,35 +124,74 @@ while True :
 
 #-----------------------------------PAQUETES TURISTICOS ------------------------------------
 
-Paquete1 = {
-    "nombre" : "TourMedellin",
-    "duracion" : "cuatro dias y tres noches",
-    "transporte" : "privado",
-    "actividades" : "jardin botanico, parque explora, museo de arte moderno, comuna 13",
-    "seguridad" : "seguro contra accidentes y asistencia medica",
-    "precio": 360.000
-}
 
-Paquete2 = {
-    "nombre" : "MedalloExtremo",
-    "duracion" : "tres dias y dos noches",
-    "transporte" : "privado",
-    "actividades" : "parapente en guatape, visita a las cascadas de san luis, recorrido en cuatrimotos ",
-    "seguridad" : " seguro contra accidentes y asistencia medica",
-    "precio" : 650.000
-}
+listaPaquetesTuristicos = [
+    {
+        "nombre": "TourMedellín",
+        "duracion": "3 dias",
+        "transporte": "privado",
+        "actividades": "jardin botanico, parque explora, museo de arte moderno, comuna 13",
+        "seguridad" : "seguro contra accidentes y asistencia medica"
+    },
+       {
+        "nombre" : "MedalloExtremo",
+        "duracion" : "tres dias y dos noches",
+        "transporte" : "privado",
+        "actividades" : "parapente en guatape, visita a las cascadas de san luis, recorrido en cuatrimotos ",
+        "seguridad" : "seguro contra aciddente y asistencia medica" 
+    }, 
+       {
+        "nombre" : "CartagenaBeach",
+        "duracion" : "12 horas",
+        "transporte" : "terrestre privado, lancha rapida",
+        "actividades" : "excurción Bora bora beach, isabella y Pao Pao beach.",
+        "alimentacion": "coctel de binvenida, almuerzo, refrigerio, agua y gaseosa en la lancha",
+        "seguridad" : "seguro contra accidentes y asistencia medica", 
+       }
 
-#---------------------------------------------------------------------------------
+]
 
-Paquete3 = {
-    "nombre" : "CartagenaBeach",
-    "duracion" : "12 horas",
-    "transporte" : "terrestre privado, lancha rapida",
-    "actividades" : "excurción Bora bora beach, isabella y Pao Pao beach.",
-    "alimentación": "coctel de binvenida, almuerzo, refrigerio, agua y gaseosa en la lancha",
-    "seguridad" : "seguro contra accidentes y asistencia medica",
-    "precio": 300.000
-}
+idpaquetes = 1
+
+while True :
+    print("---\n Bienvenido a nuestra seccion de paquetes Turisticos---")
+    print("1. TourMedellin ")
+    print("2. MedalloExtremo")
+    print("3. CartagenaBeach")
+    print("4. salir")
+    
+    opcion = input("por favor, elige el paquete turistico que mas te llame la atencion  ")
+
+    if opcion == "1":
+        paquete = listaPaquetesTuristicos[0]
+        print(f"\n detalles del {paquete['nombre']}")
+        print(f"Duracion: {paquete['duracion']}")
+        print(f"Transporte: {paquete['transporte']}")
+        print(f"Actividades: {paquete['actividades']}")
+        print(f"Seguridad: {paquete['seguridad']}")
+
+    elif opcion == "2": 
+        paquete = listaPaquetesTuristicos[1]
+        print(f"\ndetalles del {paquete['nombre']}")
+        print(f"Duracion: {paquete['duracion']}")
+        print(f"Transporte: {paquete['transporte']}")
+        print(f"Actividades: {paquete['actividades']}")
+        print(f"Seguridad: {paquete['seguridad']}")
+
+    elif opcion == "3":
+        paquete = listaPaquetesTuristicos[2]
+        print(f"\ndetalles del {paquete['nombre']}")
+        print(f"Duracion: {paquete['duracion']}")
+        print(f"Transporte: {paquete['transporte']}")
+        print(f"Actividades: {paquete['actividades']}")
+        print(f"Seguridad: {paquete['seguridad']}")
+
+
+    elif opcion == "4":
+        print("\nGracias por visitar nuestra seccion de paquetes turisticos")
+        break
+    else : 
+        print("opcion invalidad, porfavor elige una opcion de el 1 al 4")
 
 
 
