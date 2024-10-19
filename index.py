@@ -1,4 +1,3 @@
-from datetime import datetime
 
 listaVuelos = []
 viajes = [
@@ -8,119 +7,152 @@ viajes = [
         "duración": "cuatro días y 3 noches",
         "caminata": "es un paseo en el cerro"
     },
-       {
+     {
+        "ciudad": "Medellín",
+        "nombre": "TourMedellín",
+        "precio": "$410",
+        "duración": "3 dias",
+        "transporte": "privado",
+        "caminata": "jardin botanico, parque explora, museo de arte moderno, comuna 13, seguro contra accidentes y asistencia medica",
+    },
+    {
         "ciudad": "Cartagena",
         "precio": "$400",
         "duración": "2 días y 1 noche",
         "caminata": "es un paseo"
     },
-
 ]
 
 idVuelos = 1 
 
-while True :
-    print("---\n Bienvenido a la agencia de vuelos islas tiqui tiqui----")
+while True:
+    print("\n---\n Bienvenido a la agencia de vuelos----")
     print("1. A donde quieres ir?")
     print("2. Modificar mi vuelo")
     print("3. Eliminar mi vuelo")
     print("4. Mostrar mis reservas")
     print("5. salir")
 
-    opcion = input("Elige la opcion deseada: ")
+    opcion = input("Elige la opción deseada: ")
 
-    #Haciendo reservas-----------------------------------
+    # Haciendo reservas
     if opcion == "1":
-        #en esta linea estamos pidiendo al usuario ingresar la informacion inicial para el vuelo
-        origen = input("¿Cual es tu origen?: ")
-        destino = input("Escriba su destino: ")
-        pasajeros = input("Cantidad de pasajeros en numeros: ")
+        origen = input("¿Cuál es tu origen?: ")
+        destino = input("Escribe su destino: ")
+        pasajeros = input("Cantidad de pasajeros en números: ")
         fecha_Ida = input("Ingrese fecha de ida (dd/mm/aaaa): ")
-        fecha_Regreso = input("Ingrese fecha de regreso (dd/mm/aaaa):")
+        fecha_Regreso = input("Ingrese fecha de regreso (dd/mm/aaaa): ")
 
-        listaVuelos.append({"id": idVuelos, "origen": origen, "destino": destino, "pasajeros": pasajeros, "fecha de ida": fecha_Ida, "fecha de regreso": fecha_Regreso})
-        print(f"Tarea {idVuelos} creada con exito \n")
-        idVuelos += 1
-#editar_vuelo------------------------------------------------------------------------------------------------------------------------
-    if opcion == "2":
-      vuelo_encontrado = False
-    idActualizar = int(input("Ingrese el ID del vuelo que quiere actualizar: "))
-    
-    for i in viajes:
-        if i["id"] == idActualizar:
-            nuevoOrigen = input("Ingrese el nuevo origen (dejar en blanco si no quiere modificarlo): ")
-            nuevoDestino = input("Ingrese el nuevo destino (dejar en blanco si no quiere modificarlo): ")
-            nuevosPasajeros = input("Ingrese la nueva cantidad de pasajeros (dejar en blanco si no quiere modificarla): ")
-            nuevaFechaIda = input("Ingrese una nueva fecha (dejar en blanco si no quiere modificarla): ")
-            nuevaFechaRegreso = input("Ingrese una nueva fecha (dejar en blanco si no quiere modificarla): ")
+        listaVuelos.append({
+            "id": idVuelos, 
+            "origen": origen, 
+            "destino": destino, 
+            "pasajeros": pasajeros, 
+            "fecha de ida": fecha_Ida, 
+            "fecha de regreso": fecha_Regreso
+        })
+
+        print("\n---\n Escoge tu vuelo ---")
+        if listaVuelos[0]["destino"].lower() == "medellin":
+            for i, viaje in enumerate(viajes, start=1):  # Comienza la numeración en 1
+                if viaje["ciudad"].lower() == "medellín":
+                    print(f"{i}. Ciudad: {viaje['ciudad']}")
+                    print(f"   Precio: {viaje['precio']}")
+                    print(f"   Duración: {viaje['duración']}")
+                    print(f"   Caminata: {viaje['caminata']}")
+                    print()  # Espacio adicional entre los viajes
             
-            if nuevoOrigen:
-                i["origen"] = nuevoOrigen
-            if nuevoDestino:
-                i["destino"] = nuevoDestino
-            if nuevosPasajeros:
-                i["pasajeros"] = nuevosPasajeros
-            if nuevaFechaIda:
-                i["fecha_ida"] = nuevaFechaIda
-            if nuevaFechaRegreso:
-                i["fecha_regreso"] = nuevaFechaRegreso
-
-                
-            print(f"Vuelo {idActualizar} actualizado con éxito.\n")
-            vuelo_encontrado = True
-            break
-    
-    if not vuelo_encontrado:
-        print(f"No se encontró el vuelo con el ID: {idActualizar}\n")
 
 
-    #Eliminar reserva-------------------------------------     
-    elif opcion == "4":
-        idEliminar = int(input("Ingrese el ID a eliminar: "))
+            opcionViajesMedellin = input("Escoge tu vuelo (número): ")
+            if int(opcionViajesMedellin) == 1:
+                listaVuelos[0].update(viajes[0])  # Combina los datos
+                print("\n¡Vuelo añadido exitosamente!")
+                print(f"Detalles del vuelo: {listaVuelos[0]}")  # Muestra el objeto actualizado
+
+            if int(opcionViajesMedellin) == 2:
+                listaVuelos[0].update(viajes[1])  # Combina los datos
+                print("\n¡Vuelo añadido exitosamente!")
+                print(f"Detalles del vuelo: {listaVuelos[0]}")  # Muestra el objeto actualizado   
+
+        elif listaVuelos[0]["destino"].lower() == "cartagena":
+              for i, viaje in enumerate(viajes, start=1):  # Comienza la numeración en 1
+                if viaje["ciudad"].lower() == "cartagena":
+                    print(f"{i}. Ciudad: {viaje['ciudad']}")
+                    print(f"   Precio: {viaje['precio']}")
+                    print(f"   Duración: {viaje['duración']}")
+                    print(f"   Caminata: {viaje['caminata']}")
+                    print()  # Espacio adicional entre los viajes
+
+                opcionViajesCartagena = input("Escoge tu vuelo (número): ")
+                if int(opcionViajesCartagena) == 1:
+                    listaVuelos[0].update(viajes[3]) 
+                    print("\n¡Vuelo añadido exitosamente!")
+                    print(f"Detalles del vuelo: {listaVuelos[0]}")  
+        idVuelos += 1
+
+# Modificar vuelo
+    elif opcion == "2":
         vuelo_encontrado = False
-        for i in idVuelos :
-            if i ["id"] == idEliminar:  
-                idVuelos.remove(i) 
-                print(f"Tarea {idEliminar} eliminada exitosamente ")
+        idActualizar = int(input("Ingrese el ID del vuelo que quiere actualizar: "))
+        
+        for vuelo in listaVuelos:
+            if vuelo["id"] == idActualizar:
+                nuevoOrigen = input("Ingrese el nuevo origen (dejar en blanco si no quiere modificarlo): ")
+                nuevoDestino = input("Ingrese el nuevo destino (dejar en blanco si no quiere modificarlo): ")
+                nuevosPasajeros = input("Ingrese la nueva cantidad de pasajeros (dejar en blanco si no quiere modificarla): ")
+                nuevaFechaIda = input("Ingrese una nueva fecha (dejar en blanco si no quiere modificarla): ")
+                nuevaFechaRegreso = input("Ingrese una nueva fecha (dejar en blanco si no quiere modificarla): ")
+
+                if nuevoOrigen:
+                    vuelo["origen"] = nuevoOrigen
+                if nuevoDestino:
+                    vuelo["destino"] = nuevoDestino
+                if nuevosPasajeros:
+                    vuelo["pasajeros"] = nuevosPasajeros
+                if nuevaFechaIda:
+                    vuelo["fecha de ida"] = nuevaFechaIda
+                if nuevaFechaRegreso:
+                    vuelo["fecha de regreso"] = nuevaFechaRegreso
+
+                print(f"Vuelo {idActualizar} actualizado con éxito.\n")
                 vuelo_encontrado = True
                 break
-        if not vuelo_encontrado :
-            print(f" No se encontro el vuelo con el ID {idEliminar}")     
-
-    #fechaVencimiento = datetime.strptime(fechaVencimiento, "%d/%m/%y")
-    print(listaVuelos[:])
-    
-    #en esta parte se deben mostrar los vuelos que puedo escoger
-
-
-    print("---\n Escoge tu vuelo----")
         
-        #Lista de vuelos disponibles
+        if not vuelo_encontrado:
+            print(f"No se encontró el vuelo con el ID: {idActualizar}\n")
 
-    if  listaVuelos[0]["destino"].lower() == "medellin" :
-         print(viajes[0])
-    
-    elif listaVuelos[0]["destino"].lower() == "cartagena" :
-         print(viajes[1])
+    # Eliminar reserva
+    elif opcion == "3":
+        idEliminar = int(input("Ingrese el ID a eliminar: "))
+        vuelo_encontrado = False
+        for vuelo in listaVuelos:
+            if vuelo["id"] == idEliminar:  
+                listaVuelos.remove(vuelo) 
+                print(f"Vuelo {idEliminar} eliminado exitosamente.")
+                vuelo_encontrado = True
+                break
+        
+        if not vuelo_encontrado:
+            print(f"No se encontró el vuelo con el ID {idEliminar}")
 
-    if opcion == "4":
-        if len(listaVuelos)== 0:
-            print("No hay listaVuelos..")
+    # Mostrar reservas
+    elif opcion == "4":
+        if len(listaVuelos) == 0:
+            print("No hay vuelos reservados.")
         else:
-            print("-LISTA DE TAREAS-")
-        for i in listaVuelos:
-            print(f"ID: {i["id"]} Origen: {i["origen"]} Destino: {i["destino"]}")
+            print("- LISTA DE VUELOS -")
+            for vuelo in listaVuelos:
+                print(f"ID: {vuelo['id']} | Origen: {vuelo['origen']} | Destino: {vuelo['destino']} | Pasajeros: {vuelo['pasajeros']} | Fecha de Ida: {vuelo['fecha de ida']} | Fecha de Regreso: {vuelo['fecha de regreso']}")
             print()
 
+    # Salir
+    elif opcion == "5":
+        print("Muchas gracias por su visita")
+        break
 
-    #-salir de la reserva-------
-
-    # if opcion == "5":
-    #      print("Muchas gracias por su visita")
-    #      break
-
-    # else:
-    #      print("opcion invalida por favor verifique")       
+    else:
+        print("Opción inválida, por favor verifique.")
 
 #-----------------------------------PAQUETES TURISTICOS ------------------------------------
 
