@@ -207,7 +207,7 @@ while True:
                 print(f"   Paquete Turístico: {vuelo['paquete turistico']['nombre']}")
                 print(f"   Hotel: {vuelo['hotel']['nombre']}\n")
 
-    # Salir
+    # Salir de la agencia
     elif opcion == "5":
         print("Muchas gracias por su visita")
         break
